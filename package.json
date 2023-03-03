@@ -1,0 +1,22 @@
+{
+  "name": "employeenotifications",
+  "version": "1.0.0",
+  "description": "A simple pubsub system for managing notifications to employees",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SaiNikhil-06/EmpNotPubSub.git"
+  },
+  "keywords": [
+    "\"employee\""
+  ],
+  "author": "Sai Nikhil Katara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SaiNikhil-06/EmpNotPubSub/issues"
+  },
+  "homepage": "https://github.com/SaiNikhil-06/EmpNotPubSub#readme"
+}

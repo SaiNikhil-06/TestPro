@@ -1,0 +1,46 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+
+// Sample data for employee interests
+const topics = ['topic1', 'topic2', 'topic3', 'topic4'];
+
+// In-memory store for user subscriptions and notification messages
+const subscriptions = {};
+const messages = {};
+
+// Middleware to parse request body
+app.use(bodyParser.json());
+
+// API endpoint for subscribing to topics
+app.post('/subscribe', (req, res) => {
+  const { userId, topics } = req.body;
+
+  // Store user subscriptions in memory
+  subscriptions[userId] = topics;
+
+  res.sendStatus(200);
+});
+
+// API endpoint for publishing messages
+app.post('/publish', (req, res) => {
+  const { topic, message } = req.body;
+
+  // Store message in memory
+  messages[topic] = message;
+
+  // Send notification to all users subscribed to the topic
+  Object.entries(subscriptions).forEach(([userId, subscribedTopics]) => {
+    if (subscribedTopics.includes(topic)) {
+      // TODO: send notification to user with userId
+    }
+  });
+
+  res.sendStatus(200);
+});
+
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
